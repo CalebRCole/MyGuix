@@ -1,2 +1,2 @@
-# MyGuix
+* MyGuix
 Personal Guix channel
