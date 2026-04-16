@@ -1,0 +1,29 @@
+(define-module (myguix packages emacs)
+  #:use-module ((guix licenses) #:prefix license:)
+  #:use-module (gnu packages emacs-xyz)
+  #:use-module (guix packages)
+  #:use-module (guix build-system emacs)
+  #:use-module (guix download)
+  #:use-module (guix git-download))
+
+(define-public emacs-flycheck-eglot
+  (package
+   (name "emacs-flycheck-eglot")
+   (version "1.0")
+   (source
+    (origin
+     (method git-fetch)
+     (uri (git-reference
+	   (url "https://github.com/flycheck/flycheck-eglot")
+	   (commit "cd1dd78cec0ae1f566c765d98bbff322cc7b67ef")))
+     (file-name (git-file-name name version))
+     (sha256
+      (base32
+       "19i2a33mpddd64mnvjk247ayn325p66lknm9pqjb0ccjfwi54sml"))))
+   (build-system emacs-build-system)
+   (propagated-inputs
+    (list emacs-eglot emacs-flycheck))
+   (home-page "https://github.com/flycheck/flycheck-eglot")
+   (synopsis "Flycheck support for eglot")
+   (description "A simple “glue” minor mode that allows Flycheck and Eglot to work together. Thus, the Flycheck frontend can display the results of syntactic checks performed by the LSP server.")
+   (license license:gpl3+)))
