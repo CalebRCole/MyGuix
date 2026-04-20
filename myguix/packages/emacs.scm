@@ -27,3 +27,23 @@
    (synopsis "Flycheck support for eglot")
    (description "A simple “glue” minor mode that allows Flycheck and Eglot to work together. Thus, the Flycheck frontend can display the results of syntactic checks performed by the LSP server.")
    (license license:gpl3+)))
+
+(define-public emacs-gruber-darker
+  (package
+   (name "emacs-gruber-darker")
+   (version "2e9f99c41fe8ef0557e9ea0f3b94ef50c68b5557")
+   (source
+    (origin
+     (method git-fetch)
+     (uri (git-reference
+         (url "https://github.com/rexim/gruber-darker-theme")
+	   (commit "2e9f99c41fe8ef0557e9ea0f3b94ef50c68b5557")))
+     (file-name (git-file-name name version))
+     (sha256
+      (base32
+	 "07076fwxqi04ri8hmxjpf348lc4ms2lgjdzk8009sliixhh0mdzl"))))
+   (build-system emacs-build-system)
+   (home-page "https://github.com/rexim/gruber-darker-theme")
+   (synopsis "Dark theme for Emacs")
+   (description "Gruber Darker color theme for Emacs by Jason Blevins. A darker variant of the Gruber Dark theme for BBEdit by John Gruber. Adapted for deftheme and extended by Alexey Kutepov a.k.a. rexim.")
+   (license license:gpl3+)))
